@@ -1,21 +1,26 @@
-h3 {
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
-  
-  .card {
-    margin-bottom: 3%;
-  }
-  
-  .card:hover {
-    background-color: #007bff;
-  }
-  
-  .card:hover a {
-    color: white;
-  }
-  
-  .card a:hover {
-    color: white;
-    text-decoration: none;
-  }
+.card:hover a {
+  color: white;
+}
+
+.card a:hover {
+  color: white;
+  text-decoration: none;
+}
+.btn-outline-primary {
+  background-color: #bdc3d0;
+}
+.content{
+  margin-bottom: 8px;
+}
+.my-custom-class {
+  background: aliceblue;
+  font-size: 14px;
+}
+.my-custom-class .arrow::after {
+  border-top-color: aliceblue;
+}
+body {
+  background-image: url("../../../assets/img/auth-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

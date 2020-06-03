@@ -1,13 +1,32 @@
-<div>
-    <h3>User collection</h3>
-    <button mat-raised-button color="primary" (click)="getUsers()">Primary</button>
-    <div class="row">
-      <div class="col-sm-4" *ngFor="let user of users">
-        <div class="card">
-          <div class="card-body">
-            <a routerLink="user/{{user.id}}">{{user.name}}</a>
-          </div>
-        </div>
+<div class="col-sm-12 col-md-6 col-lg-6 offset-lg-3 offset-md-3">
+  <div class="card  text-left">
+    <div class="card-header">
+      <h4 class="card-title" style="text-align: center;">Users Collection</h4>
+      <p></p>
+      <button class="btn btn-primary round mr-1 mb-1" style="float:right"   (click)="getUsers()"> Get Users</button>
+    </div>
+    <div class="card-content">
+      <div class="card-body">
+        <ul class="list-group" *ngFor="let user of users">
+          <li class="list-group-item list-group-item-action list-group-item-secondary">
+            <span class="badge badge-primary mr-3">{{user.id}}</span>
+            <button type="button" class="btn btn-outline-primary" style="width:88%" placement="right"
+              (click)="getUserDetails(user.id)" html="true" popoverTitle='{{user.id}} - {{user.name}}' [ngbPopover]="popContent"
+              #popover="ngbPopover" popoverClass="my-custom-class">
+              {{user.name}}
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
 </div>
+<ng-template #popContent>
+  <div>Birthday: {{details.birthDate}} </div>
+  <div *ngIf="details.cars.length>0">Cars:</div>
+  <ul *ngFor="let car of details.cars">
+    <li><div> Id: {{car.id}} </div>
+     <div class="content"> Content: {{car.content}}</div>
+    </li>
+  </ul>
+</ng-template>
